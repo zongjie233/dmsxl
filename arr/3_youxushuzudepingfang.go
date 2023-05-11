@@ -10,12 +10,12 @@ leetcode:977
 */
 
 // 双指针
-func demo(nums []int) []int {
+func demo3(nums []int) []int {
 	n := len(nums)
 	k := n - 1
 	res := make([]int, n)
 	left, right := 0, n-1
-	for left <= right {
+	for left <= right { //这里是<=
 		if nums[left]*nums[left] > nums[right]*nums[right] {
 			res[k] = nums[left] * nums[left]
 			left++
