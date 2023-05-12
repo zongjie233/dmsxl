@@ -35,20 +35,20 @@ func luoxuan(n int) [][]int {
 		}
 
 		//行不变，列变
-		for ; j > starty; j-- {
+		for ; j > starty; j-- { // 这里的边界条件是>starty
 			res[i][j] = count
 			count++
 		}
 
 		//列不变 行变
-		for ; i > startx; i-- {
+		for ; i > startx; i-- { // 这里的边界条件是>startx
 			res[i][j] = count
 			count++
 		}
 		startx++
 		starty++
 		offset++
-		loop--
+		loop-- // loop--
 	}
 	if n%2 == 1 {
 		res[center][center] = n * n
