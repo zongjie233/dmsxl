@@ -9,6 +9,7 @@ type ListNode struct {
 
 func main() {
 	var list = new(SingleLinkedList)
+
 	list.Init()
 	list.addAtHead(1)
 	list.addAtTail(3)
