@@ -8,8 +8,8 @@ package main
 
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
-	for index, val := range nums {
-		if preIndex, ok := m[target-val]; ok {
+	for index, val := range nums { // 使用键值方式遍历数组
+		if preIndex, ok := m[target-val]; ok { // 判断差值是否出现在map中，如果存在则返回对应的两个数字下标
 			return []int{preIndex, index}
 		} else {
 			m[val] = index
