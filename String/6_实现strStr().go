@@ -7,15 +7,16 @@ package main
 */
 // kmp算法。next数组
 
-// 这里的next数组做了-1操作
+// 这里的next数组做了-1操作， i 指向后缀末尾，j指向前缀末尾
 func getNext(next []int, s string) {
 	j := -1 // j表示 最长相等前后缀长度
 	next[0] = j
 
 	for i := 1; i < len(s); i++ {
 
+		// 前后缀不相同，一直回退
 		for j >= 0 && s[i] != s[j+1] {
-			j = next[j] // 回退前一位,一直回退
+			j = next[j] // 回退前一位
 		}
 
 		if s[i] == s[j+1] {
