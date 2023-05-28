@@ -5,12 +5,12 @@ type MyQueue struct {
 	stackOut []int
 }
 
-func Constructor() MyQueue {
-	return MyQueue{
-		stackIn:  make([]int, 0),
-		stackOut: make([]int, 0),
-	}
-}
+// func Constructor() MyQueue {
+// 	return MyQueue{
+// 		stackIn:  make([]int, 0),
+// 		stackOut: make([]int, 0),
+// 	}
+// }
 
 func (this *MyQueue) Push(x int) {
 	this.stackIn = append(this.stackIn, x)
