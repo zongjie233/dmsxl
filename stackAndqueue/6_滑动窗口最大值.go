@@ -4,6 +4,7 @@ type MyDqueue struct {
 	queue []int
 }
 
+// 单调队列
 func NewMyDqueue() *MyDqueue {
 	return &MyDqueue{
 		queue: make([]int, 0),
@@ -29,7 +30,7 @@ func (m *MyDqueue) Pop(val int) { // 如果要pop的val等于第一个，则弹�
 
 }
 
-func (m *MyDqueue) Push(val int) { //将元素 val 插入到合适的位置,维持优先队列的性质。
+func (m *MyDqueue) Push(val int) { // 如果将要加进来的元素比最后一个大，则一直进行踢出操作，把新元素加到后边,从而保证时单调递减队列
 	for !m.Empty() && val > m.Back() { // 这里是for，不是if
 		m.queue = m.queue[:len(m.queue)-1]
 	}
