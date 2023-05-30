@@ -20,7 +20,7 @@ func topKFrequent(nums []int, k int) []int {
 	}
 	res := make([]int, k)
 
-	for i := 0; i < k; i++ {
+	for i := 0; i < k; i++ { // 从小顶堆中弹出k个元素，并从大到小排列放入res中
 		res[k-i-1] = heap.Pop(h).([2]int)[0]
 	}
 	return res
@@ -34,7 +34,7 @@ func (h IHeap) Len() int {
 	return len(h) // 返回子数组的个数
 }
 
-func (h IHeap) Less(i, j int) bool { // 数组的第一行第一个元素为根节点
+func (h IHeap) Less(i, j int) bool {
 	return h[i][1] < h[j][1]
 }
 
