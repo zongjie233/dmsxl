@@ -7,7 +7,9 @@ type TreeNode struct {
 }
 
 // 前序遍历 中左右
-func perorderTraversal(root *TreeNode) (res []int) {
+func perorderTraversal(root *TreeNode) []int {
+	res := []int{}
+
 	var traversal func(node *TreeNode)
 	traversal = func(node *TreeNode) {
 		if node == nil {
@@ -22,7 +24,9 @@ func perorderTraversal(root *TreeNode) (res []int) {
 }
 
 // 中序
-func inorderTraversal(root *TreeNode) (res []int) {
+func inorderTraversal(root *TreeNode) []int {
+	res := []int{}
+
 	var traversal func(node *TreeNode)
 	traversal = func(node *TreeNode) {
 		if node == nil {
@@ -37,7 +41,8 @@ func inorderTraversal(root *TreeNode) (res []int) {
 }
 
 // 后序
-func postorderTraversal(root *TreeNode) (res []int) {
+func postorderTraversal(root *TreeNode) []int {
+	res := []int{}
 	var traversal func(node *TreeNode)
 	traversal = func(node *TreeNode) {
 		if node == nil {
