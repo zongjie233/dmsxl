@@ -6,5 +6,5 @@ package main
 
 // KMP解法
 func repeatedSubstringPattern(s string) bool {
-
+	return true
 }
