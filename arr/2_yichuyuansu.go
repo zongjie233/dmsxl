@@ -14,16 +14,15 @@ leetcode:27
 */
 
 // 双指针思路
-func yichuyuansu(nums []int, val int) int {
-	fast, slow := 0, 0
-	for fast <= len(nums)-1 {
-		if nums[fast] == val {
-			fast++
-		} else {
-			nums[slow] = nums[fast]
-			slow++
-			fast++
+func removeElement(nums []int, val int) int {
+	i := 0
+
+	for j := 0; j < len(nums); j++ {
+		if nums[j] != val {
+			nums[i] = nums[j]
+			i++
 		}
 	}
-	return slow
+
+	return i
 }
