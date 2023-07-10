@@ -10,12 +10,14 @@ leetcode:977
 */
 
 // 双指针
-func demo3(nums []int) []int {
-	n := len(nums)
-	k := n - 1
-	res := make([]int, n)
-	left, right := 0, n-1
-	for left <= right { //这里是<=
+func sortedSquares(nums []int) []int {
+	left := 0
+	length := len(nums)
+	k := length - 1
+	right := k
+	res := make([]int, len(nums))
+
+	for left <= right {
 		if nums[left]*nums[left] > nums[right]*nums[right] {
 			res[k] = nums[left] * nums[left]
 			left++
@@ -24,6 +26,7 @@ func demo3(nums []int) []int {
 			right--
 		}
 		k--
+
 	}
 	return res
 }
