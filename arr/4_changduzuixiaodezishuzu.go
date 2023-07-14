@@ -12,12 +12,11 @@ func demo4(nums []int, target int) int {
 	i := 0
 	length := len(nums)
 	res := length + 1
-	sublength := 0
 	sum := 0 // 窗口内数据的和
 	for j := 0; j < length; j++ {
 		sum += nums[j]
 		for sum >= target {
-			sublength = j - 1 + i
+			sublength := j - i + 1
 			if sublength < res {
 				res = sublength
 			}
