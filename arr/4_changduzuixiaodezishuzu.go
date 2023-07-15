@@ -1,4 +1,4 @@
-package main
+package arr
 
 /*
 leet:209
@@ -8,7 +8,7 @@ leet:209
 */
 
 //滑动窗口
-func demo4(nums []int, target int) int {
+func huadongchuangkou(nums []int, target int) int {
 	i := 0
 	length := len(nums)
 	res := length + 1
