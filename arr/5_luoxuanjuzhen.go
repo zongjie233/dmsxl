@@ -45,6 +45,7 @@ func luoxuan(n int) [][]int {
 			res[i][j] = count
 			count++
 		}
+		// 一圈结束
 		startx++
 		starty++
 		offset++

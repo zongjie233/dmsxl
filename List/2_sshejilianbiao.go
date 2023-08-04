@@ -120,3 +120,87 @@ func (list *SingleLinkedList) deleteAtIndex(index int) {
 	cur.Next = cur.Next.Next
 	list.Size--
 }
+
+// 采用模拟的方式进行code
+
+type MyLinkedList struct {
+	head *Node
+	size int
+}
+
+type Node struct {
+	val  int
+	next *Node
+}
+
+func Constructor() MyLinkedList {
+	return MyLinkedList{}
+}
+
+func (this *MyLinkedList) Get(index int) int {
+	if index < 0 || index >= this.size {
+		return -1
+	}
+
+	curr := this.head
+	for i := 0; i < index; i++ {
+		curr = curr.next
+	}
+	return curr.val
+}
+
+func (this *MyLinkedList) AddAtHead(val int) {
+	// 同时完成新建节点和赋值给头结点的工作
+	this.head = &Node{val, this.head}
+	this.size++
+}
+
+func (this *MyLinkedList) AddAtTail(val int) {
+	// 如果此时链表长度为0,则只需要使用addathead方法代替
+	if this.size == 0 {
+		this.AddAtHead(val)
+		return
+	}
+	curr := this.head
+	for curr.next != nil {
+		curr = curr.next
+	}
+	curr.next = &Node{val: val}
+	this.size++
+}
+
+func (this *MyLinkedList) AddAtIndex(index int, val int) {
+	if index > this.size {
+		return
+	}
+	if index <= 0 {
+		this.AddAtHead(val)
+	} else {
+		curr := this.head
+		// index-1,到目标位置的前一个节点
+		for i := 0; i < index-1; i++ {
+			curr = curr.next
+		}
+		curr.next = &Node{val, curr.next}
+		this.size++
+	}
+}
+
+func (this *MyLinkedList) DeleteAtIndex(index int) {
+	if index < 0 || index >= this.size {
+		return
+	}
+
+	this.size--
+	// 如果index =0 则直接通过操作头结点完成
+	if index == 0 {
+		this.head = this.head.next
+		return
+	}
+	curr := this.head
+	for i := 0; i < index-1; i++ {
+		curr = curr.next
+	}
+	curr.next = curr.next.next
+
+}
