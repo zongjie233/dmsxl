@@ -30,5 +30,5 @@ func reverse(pre, cur *ListNode) *ListNode {
 }
 
 func reverseList(head *ListNode) *ListNode {
-	return reverse(head, nil)
+	return reverse(nil, head)
 }
